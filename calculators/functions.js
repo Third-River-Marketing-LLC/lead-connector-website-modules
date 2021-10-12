@@ -26,9 +26,6 @@ function loadCalculator(){
 	fetch(templateURL).then(function(response){		
 		return response.text();
 	}).then(function(html){
-		var parser = new DOMParser();
-		var html   = parser.parseFromString(html, 'text/html');
-
 		console.log( html );
 
 		script.outerHTML = '';
