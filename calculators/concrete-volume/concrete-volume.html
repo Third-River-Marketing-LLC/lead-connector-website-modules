@@ -1,0 +1,60 @@
+<form onsubmit="calculateCubicYards(this,event);" class="flex-form">
+	<header>
+		<h3 style="flex-basis: 100%; width: 100%;">
+			<strong>Concrete Volume Calculator</strong>
+			<em style="font-weight: 100; font-size: 14px;">Note: Calculations are estimates only</em>
+		</h3>
+	</header>
+	<section>
+		<div>
+			<label>
+				<strong>Width</strong>
+				<div class="split-container">
+					<select tabindex="-1" onchange="flexCalcMultiplier(this,event);">
+						<option value="1">Feet</option>
+						<option value="12">Inch</option>
+					</select>
+					<input tabindex="1000" type="number" name="width" />
+				</div>
+			</label>
+		</div>
+		<div>
+			<label>
+				<strong>Length</strong>
+				<div class="split-container">
+					<select tabindex="-1" onchange="flexCalcMultiplier(this,event);">
+						<option value="1">Feet</option>
+						<option value="12">Inch</option>
+					</select>
+					<input tabindex="1001" type="number" name="length" />
+				</div>
+			</label>
+		</div>
+		<div>
+			<label>
+				<strong>Thickness</strong>
+				<div class="split-container">
+					<select tabindex="-1" onchange="flexCalcMultiplier(this,event);">
+						<option value="1">Feet</option>
+						<option value="12" selected="selected">Inch</option>
+					</select>
+					<input tabindex="1002" type="number" name="thickness" />
+				</div>
+			</label>
+		</div>
+	</section>
+	<section>
+		<div class="buttons">
+			<button tabindex="-1" class="reset" onclick="resetForm(this,event);">Reset</button>
+			<button tabindex="1003" class="calculate">Calculate</button>
+		</div>
+		<div>
+			<label>
+				<div class="split-container reverse">
+					<strong>Cubic Yards Required:</strong>
+					<input type="number" readonly name="answer" />
+				</div>
+			</label>
+		</div>
+	</section>
+</form>
