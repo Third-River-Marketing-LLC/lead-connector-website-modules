@@ -26,9 +26,8 @@ function loadCalculator(){
 	fetch(templateURL).then(function(response){		
 		return response.text();
 	}).then(function(html){
-		console.log( html );
-
-		script.outerHTML = '';
+		script.outerHTML = html;
+		
 		document.documentElement.dataset['loadCalculator'+calculator.replace(/-/,'')] = 'true';
 	});
 }
