@@ -17,7 +17,7 @@ function resetForm(el,e){
 }
 
 function loadCalculator(){
-	if( document.documentElement.dataset.['loadCalculator-'+calculator] === 'true' )
+	if( document.documentElement.dataset['loadCalculator-'+calculator] === 'true' )
 		return;
 
 	var templateURL = 'https://cdn.jsdelivr.net/gh/Third-River-Marketing-LLC/lead-connector-website-modules/calculators/'+ calculator +'/calc-template.html';
@@ -27,7 +27,7 @@ function loadCalculator(){
 	}).then(function(json){
 		console.log( json );
 		script.outerHTML = '';
-		document.documentElement.dataset.['loadCalculator-'+calculator] = 'true';
+		document.documentElement.dataset['loadCalculator-'+calculator] = 'true';
 	});
 }
 
