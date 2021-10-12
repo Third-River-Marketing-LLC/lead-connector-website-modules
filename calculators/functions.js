@@ -24,9 +24,13 @@ function loadCalculator(){
 	var templateURL = 'https://cdn.jsdelivr.net/gh/Third-River-Marketing-LLC/lead-connector-website-modules@latest/calculators/'+ calculator +'/calc-template.html';
 
 	fetch(templateURL).then(function(response){		
-		return response.body.getReader();
-	}).then(function(body){
-		console.log( body );
+		return response.text();
+	}).then(function(html){
+		var parser = new DOMParser();
+		var html   = parser.parseFromString(html, 'text/html');
+
+		console.log( html );
+
 		script.outerHTML = '';
 		document.documentElement.dataset['loadCalculator'+calculator.replace(/-/,'')] = 'true';
 	});
