@@ -21,9 +21,10 @@ function loadCalculator(){
 	if( document.documentElement.dataset['loadCalculator-'+calculator] === 'true' )
 		return;
 
-	var templateURL = 'https://cdn.jsdelivr.net/gh/Third-River-Marketing-LLC/lead-connector-website-modules/calculators/'+ calculator +'/calc-template.html';
+	var templateURL = 'https://cdn.jsdelivr.net/gh/Third-River-Marketing-LLC/lead-connector-website-modules@latest/calculators/'+ calculator +'/calc-template.html';
 
 	fetch(templateURL).then(function(response){
+		console.log( response );
 		return response.json();
 	}).then(function(json){
 		console.log( json );
