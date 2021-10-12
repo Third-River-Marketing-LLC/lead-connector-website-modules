@@ -1,4 +1,5 @@
 /* jshint esversion: 6 */
+
 const head       = document.head || document.getElementsByTagName('head')[0],
 	  script     = document.currentScript ?? document.scripts[document.scripts.length - 1],
 	  calculator = document.currentScript.getAttribute('calculator');
