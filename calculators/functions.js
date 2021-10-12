@@ -25,7 +25,7 @@ function loadCalculator(){
 
 	var style  = document.createElement('link');
 
-	style.rel  = 'styleseet';
+	style.rel  = 'stylesheet';
 	style.type = 'text/css';
 	style.href = 'https://cdn.jsdelivr.net/gh/Third-River-Marketing-LLC/lead-connector-website-modules@latest/calculators/style.min.css';
 	
