@@ -3,7 +3,7 @@ function calculateCubicYards_blockwall(el, e){
 	
 	var fields = {
 		length:    el.querySelector('[name="length"]'),
-		width:     el.querySelector('[name="width"]'),
+		height:    el.querySelector('[name="height"]'),
 		thickness: el.querySelector('[name="thickness"]'),
 		answer:    el.querySelector('[name="answer"]')
 	};
@@ -35,7 +35,7 @@ function calculateCubicYards_blockwall(el, e){
 	
 	var feet = (
 		( values.length    / multipliers.length ) *
-		( values.width     / multipliers.width ) *
+		( values.height    / multipliers.height ) *
 		( values.thickness / multipliers.thickness * ( multipliers.thickness * .0425) )
 	);
 	
