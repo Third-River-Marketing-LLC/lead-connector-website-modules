@@ -7,6 +7,25 @@ const head       = document.head || document.getElementsByTagName('head')[0],
 	  heading    = document.currentScript.getAttribute('heading'),
 	  notice     = document.currentScript.getAttribute('notice');
 
+function flexCalcMultiplier(el, e, div, mult){
+	div ??= 12;
+	mult ??= 12;
+
+	var input = el.nextElementSibling,
+		value = (el.value == 1) ? input.value / div : input.value * mult,
+		step  = input.getAttribute('step'),
+		dec   = 1,
+		fixed = 0;
+	
+	if( step != null && step.includes('.') )
+		fixed = step.replace('.','').length;
+	
+	dec += '0'.repeat(fixed);
+	dec = Number(dec);
+	
+	input.value = Math.round((value + Number.EPSILON) * dec) / dec;
+}
+
 function uniqid(prefix = "", random = false) {
     var sec = Date.now() * 1000 + Math.random() * 1000;
     var id = sec.toString(16).replace(/\./g, "").padEnd(14, "0");

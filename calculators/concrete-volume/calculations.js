@@ -1,19 +1,3 @@
-function flexCalcMultiplier(el, e){
-	var input = el.nextElementSibling,
-		value = (el.value == 1) ? input.value / 12 : input.value * 12,
-		step  = input.getAttribute('step'),
-		dec   = 1,
-		fixed = 0;
-	
-	if( step != null && step.includes('.') )
-		fixed = step.replace('.','').length;
-	
-	dec += '0'.repeat(fixed);
-	dec = Number(dec);
-	
-	input.value = Math.round((value + Number.EPSILON) * dec) / dec;
-}
-
 function calculateCubicYards(el, e){
 	e.preventDefault();
 	
@@ -42,7 +26,7 @@ function calculateCubicYards(el, e){
 		dec = Number(dec);
 
 		// Force to fixed step
-		fields[key].value = Math.round((fields[key].value + Number.EPSILON) * dec) / dec;
+		fields[key].value = Math.round((Number(fields[key].value) + Number.EPSILON) * dec) / dec;
 
 		// Grab values
 		values[key]      = parseFloat( fields[key].value );
