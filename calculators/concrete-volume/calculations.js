@@ -36,7 +36,7 @@ function calculateCubicYards_concretevolume(el, e){
 	var feet = (
 		( values.length    / multipliers.length ) *
 		( values.width     / multipliers.width ) *
-		( values.thickness / multipliers.thickness * ( multipliers.thickness * .0425) )
+		( values.thickness / multipliers.thickness )
 	);
 	
 	fields.answer.value = (feet / 27).toFixed(6);
