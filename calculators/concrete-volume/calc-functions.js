@@ -1,10 +1,13 @@
 function flexCalcMultiplier(el, e){
 	var input = el.nextElementSibling;
+
 	if( el.value == 1 ){
 		input.value /= 12;
 	} else {
 		input.value *= 12;
 	}
+
+	input.value = input.value.toFixed(3);
 }
 
 function calculateCubicYards(el, e){
