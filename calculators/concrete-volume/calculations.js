@@ -1,13 +1,10 @@
+const fixed = 3;
+
 function flexCalcMultiplier(el, e){
 	var input = el.nextElementSibling;
+	var value = (el.value == 1) ? input.value / 12 : input.value * 12;
 
-	if( el.value == 1 ){
-		input.value /= 12;
-	} else {
-		input.value *= 12;
-	}
-
-	input.value = input.value.toFixed(3);
+	input.value = value.toFixed(fixed);
 }
 
 function calculateCubicYards(el, e){
@@ -27,6 +24,10 @@ function calculateCubicYards(el, e){
 		if( key == 'answer' )
 			return;
 
+		// Force to fixed step
+		fields[key].value = fields[key].value.toFixed(fixed);
+
+		// Grab values
 		values[key]      = parseFloat( fields[key].value );
 		multipliers[key] = parseInt( fields[key].previousElementSibling.value );
 	});

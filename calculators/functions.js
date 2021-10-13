@@ -2,7 +2,7 @@
 
 const head       = document.head || document.getElementsByTagName('head')[0],
 	  script     = document.currentScript ?? document.scripts[document.scripts.length - 1],
-	  baseURL    = 'https://cdn.jsdelivr.net/gh/Third-River-Marketing-LLC/lead-connector-website-modules@latest/calculators/';
+	  baseURL    = 'https://cdn.jsdelivr.net/gh/Third-River-Marketing-LLC/lead-connector-website-modules/calculators/';
 	  calculator = document.currentScript.getAttribute('calculator');
 
 function resetForm(el,e){
