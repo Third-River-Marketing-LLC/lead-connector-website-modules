@@ -25,10 +25,10 @@ function flexCalcMultiplier(el, e, div, mult){
 }
 
 function uniqid(prefix = "", random = false) {
-	var sec = Date.now() * 1000 + Math.random() * 1000;
-	var id = sec.toString(16).replace(/\./g, "").padEnd(14, "0");
-
-	return prefix + id + ((random) ? Math.trunc(Math.random() * 100000000) : '');
+    var sec = Date.now() * 1000 + Math.random() * 1000;
+    var id = sec.toString(16).replace(/\./g, "").padEnd(14, "0");
+	
+    return prefix + id + ((random) ? Math.trunc(Math.random() * 100000000) : '');
 };
 
 function resetForm(el,e){
@@ -45,9 +45,21 @@ function resetForm(el,e){
 }
 
 (function(){
+	if( !document.currentScript.src.includes('initialized=true') ){
+		var newScript = document.createElement('script');
+		newScript.src = document.currentScript.src;
+		newScript.setAttribute('notice', document.currentScript.getAttribute('notice') );
+		newScript.setAttribute('heading', document.currentScript.getAttribute('heading') );
+		newScript.setAttribute('calculator', document.currentScript.getAttribute('calculator') );
 
+		newScript.src += (newScript.src.includes('?')) ? '&' : '?';
+		newScript.src += 'initialized=true&uniqid=' + uniqid(calculator,true);
+
+		document.body.insertBefore(newScript, document.currentScript);
+		document.currentScript.outerHTML = '';
+	} else {
 		var selfScript = document.currentScript;
-
+		
 		// Duplicate script issue has been handled
 		var template     = baseURL + calculator +'/template.html';
 		var calculations = baseURL + calculator +'/calculations.js';
