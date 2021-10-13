@@ -40,7 +40,8 @@ function loadCalculator(){
 		script.outerHTML = html;
 		document.documentElement.dataset['loadCalculator'+calculator.replace(/-/,'')] = 'true';
 	}).then(function(){
-		head.appendChild(calcFunctionsScript);
+		document.body.appendChild(calcFunctionsScript);
+		console.log('done');
 	});
 }
 
