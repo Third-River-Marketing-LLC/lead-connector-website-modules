@@ -25,7 +25,7 @@ function calculateCubicYards(el, e){
 			return;
 
 		// Force to fixed step
-		fields[key].value = fields[key].value.toFixed(fixed);
+		fields[key].value = Number(fields[key].value).toFixed(fixed);
 
 		// Grab values
 		values[key]      = parseFloat( fields[key].value );
