@@ -53,13 +53,13 @@ function loadCalculator(){
 		calculatorElement.innerHTML = html;
 
 		if( heading != null ){
-			var headingElement = calculatorElement.querySelector('header h3');
+			var headingElement = calculatorElement.querySelector('header h3 strong');
 			if( headingElement != null )
 				headingElement.innerText = heading;
 		}
 
 		if( notice != null ){
-			var noticeElement = calculatorElement.querySelector('header em');
+			var noticeElement = calculatorElement.querySelector('header h3 em');
 			if( noticeElement != null )
 				noticeElement.innerText = notice;
 		}
