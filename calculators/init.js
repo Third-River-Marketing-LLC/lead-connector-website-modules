@@ -64,7 +64,7 @@ function resetForm(el,e){
 	} else {
 		var selfScript = document.currentScript;
 
-		var baseURL = ((debug != null && debug != 'null') ? debugURL : url) + path;
+		var baseURL = ((debug != null && debug != 'null') ? debugURL + path.replace('@latest','') : url + path );
 		
 		// Duplicate script issue has been handled
 		var template     = baseURL + calculator +'/template.html';
