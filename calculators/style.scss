@@ -2,7 +2,9 @@
 	width: 100%;
 	max-width: 800px;
 	flex-direction: column;
-	
+	font-family: system-ui, sans-serif;
+	font-family: var(--contentfont);
+
 	&, section {
 		display: flex;
 		max-width: 100%;
@@ -58,10 +60,21 @@
 		}
 	}
 	
+	header {
+		h3 {
+			font-family: var(--headlinefont);
+		}
+
+		em {
+			font-family: var(--contentfont);
+		}
+	}
+
 	label {
 		strong {
 			color: #062236;
 			margin-bottom: 6px;
+			font-family: var(--headlinefont);
 		}
 	}
 	
