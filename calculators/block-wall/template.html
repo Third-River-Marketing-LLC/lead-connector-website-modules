@@ -1,0 +1,64 @@
+<form onsubmit="calculateCubicYards(this,event);" class="flex-form">
+	<header>
+		<h3 style="flex-basis: 100%; width: 100%;">
+			<strong>Block Wall Calculator</strong>
+			<em style="font-weight: 100; font-size: 14px;">Note: Calculations are estimates only</em>
+		</h3>
+	</header>
+	<section>
+		<div>
+			<label>
+				<strong>Height</strong>
+				<div class="split-container">
+					<select tabindex="-1" onchange="flexCalcMultiplier(this,event);">
+						<option value="1">Feet</option>
+						<option value="12">Inch</option>
+					</select>
+					<input tabindex="2000" type="number" step=".001" name="width" formnovalidate />
+				</div>
+			</label>
+		</div>
+		<div>
+			<label>
+				<strong>Length</strong>
+				<div class="split-container">
+					<select tabindex="-1" onchange="flexCalcMultiplier(this,event);">
+						<option value="1">Feet</option>
+						<option value="12">Inch</option>
+					</select>
+					<input tabindex="2001" type="number" step=".001" name="length" formnovalidate />
+				</div>
+			</label>
+		</div>
+		<div>
+			<label>
+				<strong>Block Size</strong>
+				<div class="split-container">
+					<input type="hidden" value="1" />
+					<select tabindex="2002" name="thickness" formnovalidate>
+						<option value="">Choose a Size</option>
+						<option value="4">4 Inch</option>
+						<option value="6">6 Inch</option>
+						<option value="8">8 Inch</option>
+						<option value="10">10 Inch</option>
+						<option value="12">12 Inch</option>
+					</select>
+				</div>
+			</label>
+		</div>
+	</section>
+	<section>
+		<div class="buttons">
+			<button tabindex="-1" class="reset" onclick="resetForm(this,event);">Reset</button>
+			<button tabindex="2003" class="calculate">Calculate</button>
+		</div>
+		<div>
+			<label>
+				<div class="split-container reverse">
+					<strong>Cubic Yards Required:</strong>
+					<input type="number" step=".00001" readonly name="answer" formnovalidate />
+				</div>
+			</label>
+		</div>
+	</section>
+</form>

@@ -75,7 +75,10 @@
   text-align: right;
   background: #e9edf0;
 }
-.flex-form .split-container select, .flex-form .split-container strong {
+.flex-form .split-container select[name] {
+  flex-grow: 1;
+}
+.flex-form .split-container select[tabindex="-1"], .flex-form .split-container strong {
   border-left: 1px solid #e9edf0;
   background: #f5f6f7;
   font-size: 12px;
@@ -84,11 +87,11 @@
   justify-content: center;
   display: flex;
 }
-.flex-form .split-container select {
+.flex-form .split-container select[tabindex="-1"] {
   flex-basis: 56px;
   width: 56px;
 }
-.flex-form .split-container select + input {
+.flex-form .split-container select[tabindex="-1"] + input, .flex-form .split-container select[tabindex="-1"] + select {
   flex-basis: calc( 100% - 56px );
   width: calc( 100% - 56px );
 }
@@ -98,7 +101,7 @@
 .flex-form .split-container.reverse {
   flex-direction: row;
 }
-.flex-form .split-container.reverse select, .flex-form .split-container.reverse strong {
+.flex-form .split-container.reverse select[tabindex="-1"], .flex-form .split-container.reverse strong {
   border-left: none;
   border-right: 1px solid #e9edf0;
 }
