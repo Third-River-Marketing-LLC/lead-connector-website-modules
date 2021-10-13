@@ -37,7 +37,7 @@
   padding: 6px;
   flex-basis: calc( 100% / 3 );
   width: calc( 100% / 3 );
-  flex-grow: 0;
+  flex-grow: 1;
   flex-shrink: 0;
 }
 .flex-form > section > h3, .flex-form > section > h3 > label, .flex-form > section > div, .flex-form > section > div > label, .flex-form > header > h3, .flex-form > header > h3 > label, .flex-form > header > div, .flex-form > header > div > label {
