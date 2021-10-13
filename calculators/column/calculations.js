@@ -1,10 +1,9 @@
-function calculateCubicYards_column(el, e){
+function calculateCubicYards_concretevolume(el, e){
 	e.preventDefault();
 	
 	var fields = {
-		length:    el.querySelector('[name="length"]'),
-		width:     el.querySelector('[name="width"]'),
-		thickness: el.querySelector('[name="thickness"]'),
+		height:    el.querySelector('[name="height"]'),
+		diameter:  el.querySelector('[name="diameter"]'),
 		answer:    el.querySelector('[name="answer"]')
 	};
 	
@@ -33,10 +32,13 @@ function calculateCubicYards_column(el, e){
 		multipliers[key] = parseInt( fields[key].previousElementSibling.value );
 	});
 	
+	var radius = values.diameter / 2;
+
 	var feet = (
-		( values.length    / multipliers.length ) *
-		( values.width     / multipliers.width ) *
-		( values.thickness / multipliers.thickness * ( multipliers.thickness * .0425) )
+		( values.height    / multipliers.height ) *
+		( radius / multipliers.diameter ) *
+		( radius / multipliers.diameter ) *
+		( Math.PI )
 	);
 	
 	fields.answer.value = (feet / 27).toFixed(6);
