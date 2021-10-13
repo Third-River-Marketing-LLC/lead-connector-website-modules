@@ -3,7 +3,9 @@
 const head       = document.head || document.getElementsByTagName('head')[0],
 	  script     = document.currentScript ?? document.scripts[document.scripts.length - 1],
 	  baseURL    = 'https://cdn.jsdelivr.net/gh/Third-River-Marketing-LLC/lead-connector-website-modules/calculators/';
-	  calculator = document.currentScript.getAttribute('calculator');
+	  calculator = document.currentScript.getAttribute('calculator'),
+	  heading    = document.currentScript.getAttribute('heading'),
+	  notice     = document.currentScript.getAttribute('notice');
 
 function uniqid(prefix = "", random = false) {
     var sec = Date.now() * 1000 + Math.random() * 1000;
@@ -49,6 +51,18 @@ function loadCalculator(){
 		calculatorElement.dataUniqueId = uniqid(calculator,true);
 		calculatorElement.classList.add(calculator);
 		calculatorElement.innerHTML = html;
+
+		if( heading != null ){
+			var headingElement = calculatorElement.querySelector('header h3');
+			if( headingElement != null )
+				headingElement.innerText = heading;
+		}
+
+		if( notice != null ){
+			var noticeElement = calculatorElement.querySelector('header em');
+			if( noticeElement != null )
+				noticeElement.innerText = notice;
+		}
 
 		script.outerHTML = calculatorElement.outerHTML;
 	}).then(function(){
