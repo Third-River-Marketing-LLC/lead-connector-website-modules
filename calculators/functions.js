@@ -5,6 +5,13 @@ const head       = document.head || document.getElementsByTagName('head')[0],
 	  baseURL    = 'https://cdn.jsdelivr.net/gh/Third-River-Marketing-LLC/lead-connector-website-modules/calculators/';
 	  calculator = document.currentScript.getAttribute('calculator');
 
+function uniqid(prefix = "", random = false) {
+    var sec = Date.now() * 1000 + Math.random() * 1000;
+    var id = sec.toString(16).replace(/\./g, "").padEnd(14, "0");
+	
+    return prefix + id + ((random) ? Math.trunc(Math.random() * 100000000) : '');
+};
+
 function resetForm(el,e){
 	e.preventDefault();
 	
@@ -37,11 +44,18 @@ function loadCalculator(){
 	fetch(template).then(function(response){		
 		return response.text();
 	}).then(function(html){
-		script.outerHTML = html;
-		document.documentElement.dataset['loadCalculator'+calculator.replace(/-/,'')] = 'true';
+		var calculatorElement = document.createElement('div');
+		calculatorElement.id = calculator;
+		calculatorElement.dataUniqueId = uniqid(calculator,true);
+		calculatorElement.classList.add(calculator);
+		calculatorElement.innerHTML = html;
+
+		script.outerHTML = calculatorElement.outerHTML;
 	}).then(function(){
 		document.body.appendChild(calcFunctionsScript);
-		console.log('done');
+
+		document.documentElement.dataset['loadCalculator'+calculator.replace(/-/,'')] = 'true';
+		console.log( calculator +' Loaded' );
 	});
 }
 
