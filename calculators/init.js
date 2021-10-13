@@ -64,11 +64,13 @@ function resetForm(el,e){
 		var template     = baseURL + calculator +'/template.html';
 		var calculations = baseURL + calculator +'/calculations.js';
 
-		var style  = document.createElement('link');
-		style.rel  = 'stylesheet';
-		style.type = 'text/css';
-		style.href = baseURL + 'style.min.css';
-		head.appendChild(style);
+		if( head.querySelector('link[href="'+ baseURL + 'style.min.css"]') == null ){
+			var style  = document.createElement('link');
+			style.rel  = 'stylesheet';
+			style.type = 'text/css';
+			style.href = baseURL + 'style.min.css';
+			head.appendChild(style);
+		}
 
 		var calcFunctionsScript = document.createElement('script');
 		calcFunctionsScript.src = calculations;
