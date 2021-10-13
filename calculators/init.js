@@ -1,11 +1,10 @@
 /* jshint esversion: 6 */
-
-const head       = document.head || document.getElementsByTagName('head')[0],
-	  script     = document.currentScript ?? document.scripts[document.scripts.length - 1],
-	  baseURL    = 'https://cdn.jsdelivr.net/gh/Third-River-Marketing-LLC/lead-connector-website-modules@latest/calculators/';
-	  calculator = document.currentScript.getAttribute('calculator'),
-	  heading    = document.currentScript.getAttribute('heading'),
-	  notice     = document.currentScript.getAttribute('notice');
+var head       = document.head || document.getElementsByTagName('head')[0],
+	script     = document.currentScript ?? document.scripts[document.scripts.length - 1],
+	baseURL    = 'https://cdn.jsdelivr.net/gh/Third-River-Marketing-LLC/lead-connector-website-modules@latest/calculators/';
+	calculator = document.currentScript.getAttribute('calculator'),
+	heading    = document.currentScript.getAttribute('heading'),
+	notice     = document.currentScript.getAttribute('notice');
 
 function flexCalcMultiplier(el, e, div, mult){
 	div ??= 12;
