@@ -1,13 +1,9 @@
 /* jshint esversion: 6 */
-
-// Live Source: https://cdn.jsdelivr.net/gh/Third-River-Marketing-LLC/lead-connector-website-modules@latest/calculators/init.js
-
 var head       = document.head || document.getElementsByTagName('head')[0],
-	script     = document.currentScript,
 	baseURL    = 'https://cdn.jsdelivr.net/gh/Third-River-Marketing-LLC/lead-connector-website-modules@latest/calculators/';
-	calculator = script.getAttribute('calculator'),
-	heading    = script.getAttribute('heading'),
-	notice     = script.getAttribute('notice');
+	calculator = document.currentScript.getAttribute('calculator'),
+	heading    = document.currentScript.getAttribute('heading'),
+	notice     = document.currentScript.getAttribute('notice');
 
 function flexCalcMultiplier(el, e, div, mult){
 	div ??= 12;
@@ -29,10 +25,10 @@ function flexCalcMultiplier(el, e, div, mult){
 }
 
 function uniqid(prefix = "", random = false) {
-    var sec = Date.now() * 1000 + Math.random() * 1000;
-    var id = sec.toString(16).replace(/\./g, "").padEnd(14, "0");
-	
-    return prefix + id + ((random) ? Math.trunc(Math.random() * 100000000) : '');
+	var sec = Date.now() * 1000 + Math.random() * 1000;
+	var id = sec.toString(16).replace(/\./g, "").padEnd(14, "0");
+
+	return prefix + id + ((random) ? Math.trunc(Math.random() * 100000000) : '');
 };
 
 function resetForm(el,e){
@@ -49,47 +45,47 @@ function resetForm(el,e){
 }
 
 (function(){
-	if( document.documentElement.dataset['loadCalculator'+calculator.replace(/-/,'')] === 'true' )
-		return;
 
-	var template     = baseURL + calculator +'/template.html';
-	var calculations = baseURL + calculator +'/calculations.js';
+		var selfScript = document.currentScript;
 
-	var style  = document.createElement('link');
-	style.rel  = 'stylesheet';
-	style.type = 'text/css';
-	style.href = baseURL + 'style.min.css';
-	head.appendChild(style);
+		// Duplicate script issue has been handled
+		var template     = baseURL + calculator +'/template.html';
+		var calculations = baseURL + calculator +'/calculations.js';
 
-	var calcFunctionsScript = document.createElement('script');
-	calcFunctionsScript.src = calculations;
+		var style  = document.createElement('link');
+		style.rel  = 'stylesheet';
+		style.type = 'text/css';
+		style.href = baseURL + 'style.min.css';
+		head.appendChild(style);
 
-	fetch(template).then(function(response){		
-		return response.text();
-	}).then(function(html){
-		var calculatorElement = document.createElement('div');
-		calculatorElement.id = calculator;
-		calculatorElement.dataUniqueId = uniqid(calculator,true);
-		calculatorElement.classList.add(calculator);
-		calculatorElement.innerHTML = html;
+		var calcFunctionsScript = document.createElement('script');
+		calcFunctionsScript.src = calculations;
 
-		if( heading != null ){
-			var headingElement = calculatorElement.querySelector('header h3 strong');
-			if( headingElement != null )
-				headingElement.innerText = heading;
-		}
+		fetch(template).then(function(response){
+			return response.text();
+		}).then(function(html){
+			var calculatorElement = document.createElement('div');
+			calculatorElement.id = calculator;
+			calculatorElement.dataUniqueId = uniqid(calculator,true);
+			calculatorElement.classList.add(calculator);
+			calculatorElement.innerHTML = html;
 
-		if( notice != null ){
-			var noticeElement = calculatorElement.querySelector('header h3 em');
-			if( noticeElement != null )
-				noticeElement.innerText = notice;
-		}
+			if( heading != null && heading != 'null' ){
+				var headingElement = calculatorElement.querySelector('header h3 strong');
+				if( headingElement != null )
+					headingElement.innerText = heading;
+			}
 
-		script.outerHTML = calculatorElement.outerHTML;
-	}).then(function(){
-		document.body.appendChild(calcFunctionsScript);
+			if( notice != null && notice != 'null' ){
+				var noticeElement = calculatorElement.querySelector('header h3 em');
+				if( noticeElement != null )
+					noticeElement.innerText = notice;
+			}
 
-		document.documentElement.dataset['loadCalculator'+calculator.replace(/-/,'')] = 'true';
-		console.log( calculator +' Loaded' );
-	});
+			selfScript.outerHTML = calculatorElement.outerHTML;
+		}).then(function(){
+			document.body.appendChild(calcFunctionsScript);
+			console.log( calculator +' Loaded' );
+		});
+	}
 })();
