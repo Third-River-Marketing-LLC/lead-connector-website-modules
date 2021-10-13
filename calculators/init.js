@@ -1,9 +1,12 @@
 /* jshint esversion: 6 */
 var head       = document.head || document.getElementsByTagName('head')[0],
-	baseURL    = 'https://cdn.jsdelivr.net/gh/Third-River-Marketing-LLC/lead-connector-website-modules@latest/calculators/';
+	url        = 'https://cdn.jsdelivr.net/',
+	debugURL   = 'https://xhynk.com/',
+	path       = 'gh/Third-River-Marketing-LLC/lead-connector-website-modules@latest/calculators/';
 	calculator = document.currentScript.getAttribute('calculator'),
 	heading    = document.currentScript.getAttribute('heading'),
-	notice     = document.currentScript.getAttribute('notice');
+	notice     = document.currentScript.getAttribute('notice'),
+	debug      = document.currentScript.getAttribute('debug');
 
 function flexCalcMultiplier(el, e, div, mult){
 	div ??= 12;
@@ -48,6 +51,7 @@ function resetForm(el,e){
 	if( !document.currentScript.src.includes('initialized=true') ){
 		var newScript = document.createElement('script');
 		newScript.src = document.currentScript.src;
+		newScript.setAttribute('debug', document.currentScript.getAttribute('debug') );
 		newScript.setAttribute('notice', document.currentScript.getAttribute('notice') );
 		newScript.setAttribute('heading', document.currentScript.getAttribute('heading') );
 		newScript.setAttribute('calculator', document.currentScript.getAttribute('calculator') );
@@ -59,6 +63,8 @@ function resetForm(el,e){
 		document.currentScript.outerHTML = '';
 	} else {
 		var selfScript = document.currentScript;
+
+		var baseURL = ((debug != null && debug != 'null') ? debugURL : url) + path;
 		
 		// Duplicate script issue has been handled
 		var template     = baseURL + calculator +'/template.html';
