@@ -1,4 +1,4 @@
-function calculateCubicYards(el, e){
+function calculateCubicYards_concretevolume(el, e){
 	e.preventDefault();
 	
 	var fields = {

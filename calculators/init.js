@@ -1,4 +1,7 @@
 /* jshint esversion: 6 */
+
+// Live Source: https://cdn.jsdelivr.net/gh/Third-River-Marketing-LLC/lead-connector-website-modules@latest/calculators/init.js
+
 var head       = document.head || document.getElementsByTagName('head')[0],
 	script     = document.currentScript,
 	baseURL    = 'https://cdn.jsdelivr.net/gh/Third-River-Marketing-LLC/lead-connector-website-modules@latest/calculators/';
@@ -45,7 +48,7 @@ function resetForm(el,e){
 	});
 }
 
-function loadCalculator(){
+(function(){
 	if( document.documentElement.dataset['loadCalculator'+calculator.replace(/-/,'')] === 'true' )
 		return;
 
@@ -89,10 +92,4 @@ function loadCalculator(){
 		document.documentElement.dataset['loadCalculator'+calculator.replace(/-/,'')] = 'true';
 		console.log( calculator +' Loaded' );
 	});
-}
-
-if( document.readyState === 'loading' ) {
-	document.addEventListener( 'DOMContentLoaded', loadCalculator );
-} else if( document.readyState === 'interactive' || document.readyState === 'complete' ) {
-	loadCalculator();
-}
+})();

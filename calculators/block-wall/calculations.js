@@ -1,4 +1,4 @@
-function calculateCubicYards(el, e){
+function calculateCubicYards_blockwall(el, e){
 	e.preventDefault();
 	
 	var fields = {
@@ -36,7 +36,7 @@ function calculateCubicYards(el, e){
 	var feet = (
 		( values.length    / multipliers.length ) *
 		( values.width     / multipliers.width ) *
-		( values.thickness / multipliers.thickness )
+		( values.thickness / multipliers.thickness * ( multipliers.thickness * .0425) )
 	);
 	
 	fields.answer.value = (feet / 27).toFixed(6);
