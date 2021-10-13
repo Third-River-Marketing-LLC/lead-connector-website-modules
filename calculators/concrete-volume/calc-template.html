@@ -14,7 +14,7 @@
 						<option value="1">Feet</option>
 						<option value="12">Inch</option>
 					</select>
-					<input tabindex="1000" type="number" name="width" />
+					<input tabindex="1000" type="number" step=".001" name="width" />
 				</div>
 			</label>
 		</div>
@@ -26,7 +26,7 @@
 						<option value="1">Feet</option>
 						<option value="12">Inch</option>
 					</select>
-					<input tabindex="1001" type="number" name="length" />
+					<input tabindex="1001" type="number" step=".001" name="length" />
 				</div>
 			</label>
 		</div>
@@ -38,7 +38,7 @@
 						<option value="1">Feet</option>
 						<option value="12" selected="selected">Inch</option>
 					</select>
-					<input tabindex="1002" type="number" name="thickness" />
+					<input tabindex="1002" type="number" step=".001" name="thickness" />
 				</div>
 			</label>
 		</div>
@@ -52,7 +52,7 @@
 			<label>
 				<div class="split-container reverse">
 					<strong>Cubic Yards Required:</strong>
-					<input type="number" readonly name="answer" />
+					<input type="number" step=".00001" readonly name="answer" />
 				</div>
 			</label>
 		</div>
