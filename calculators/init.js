@@ -50,6 +50,7 @@ if( document.readyState === 'interactive' || document.readyState === 'complete' 
 			newScript.src = document.currentScript.src;
 			newScript.setAttribute('debug', document.currentScript.getAttribute('debug') );
 			newScript.setAttribute('notice', document.currentScript.getAttribute('notice') );
+			newScript.setAttribute('version', document.currentScript.getAttribute('version') );
 			newScript.setAttribute('heading', document.currentScript.getAttribute('heading') );
 			newScript.setAttribute('calculator', document.currentScript.getAttribute('calculator') );
 
@@ -62,16 +63,17 @@ if( document.readyState === 'interactive' || document.readyState === 'complete' 
 			var selfScript = document.currentScript,
 				calculator = document.currentScript.getAttribute('calculator'),
 				heading    = document.currentScript.getAttribute('heading'),
+				version    = document.currentScript.getAttribute('version'),
 				notice     = document.currentScript.getAttribute('notice'),
 				debug      = document.currentScript.getAttribute('debug');
 
 			var baseURL = ((debug != null && debug != 'null') ? debugURL + path.replace('@latest','') : url + path );
 			
 			// Duplicate script issue has been handled
-			var template     = baseURL + calculator +'/template.html?v=1';
-			var calculations = baseURL + calculator +'/calculations.js?v=1';
+			var template     = baseURL + calculator +'/template.html?v='+version;
+			var calculations = baseURL + calculator +'/calculations.js?v='+version;
 
-			if( head.querySelector('link[href="'+ baseURL + 'style.min.css?v=1"]') == null ){
+			if( head.querySelector('link[href="'+ baseURL + 'style.min.css?v='+version+'"]') == null ){
 				var style  = document.createElement('link');
 				style.rel  = 'stylesheet';
 				style.type = 'text/css';
