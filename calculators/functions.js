@@ -2,6 +2,7 @@
 
 const head       = document.head || document.getElementsByTagName('head')[0],
 	  script     = document.currentScript ?? document.scripts[document.scripts.length - 1],
+	  baseURL    = 'https://cdn.jsdelivr.net/gh/Third-River-Marketing-LLC/lead-connector-website-modules@latest/calculators/';
 	  calculator = document.currentScript.getAttribute('calculator');
 
 function resetForm(el,e){
@@ -21,22 +22,25 @@ function loadCalculator(){
 	if( document.documentElement.dataset['loadCalculator'+calculator.replace(/-/,'')] === 'true' )
 		return;
 
-	var templateURL = 'https://cdn.jsdelivr.net/gh/Third-River-Marketing-LLC/lead-connector-website-modules@latest/calculators/'+ calculator +'/calc-template.html';
+	var template  = baseURL + calculator +'/calc-template.html';
+	var functions = baseURL + calculator +'/calc-functions.js';
 
 	var style  = document.createElement('link');
-
 	style.rel  = 'stylesheet';
 	style.type = 'text/css';
 	style.href = 'https://cdn.jsdelivr.net/gh/Third-River-Marketing-LLC/lead-connector-website-modules@latest/calculators/style.min.css';
-	
 	head.appendChild(style);
 
-	fetch(templateURL).then(function(response){		
+	var script = document.createElement('script');
+	script.src = functions;
+
+	fetch(template).then(function(response){		
 		return response.text();
 	}).then(function(html){
 		script.outerHTML = html;
-
 		document.documentElement.dataset['loadCalculator'+calculator.replace(/-/,'')] = 'true';
+	}).then(function(){
+		console.log('done');
 	});
 }
 
