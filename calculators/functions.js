@@ -31,8 +31,8 @@ function loadCalculator(){
 	style.href = 'https://cdn.jsdelivr.net/gh/Third-River-Marketing-LLC/lead-connector-website-modules@latest/calculators/style.min.css';
 	head.appendChild(style);
 
-	var script = document.createElement('script');
-	script.src = functions;
+	var calcFunctionsScript = document.createElement('script');
+	calcFunctionsScript.src = functions;
 
 	fetch(template).then(function(response){		
 		return response.text();
