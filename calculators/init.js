@@ -1,6 +1,6 @@
 /* jshint esversion: 6 */
 var head       = document.head || document.getElementsByTagName('head')[0],
-	script     = document.currentScript ?? document.scripts[document.scripts.length - 1],
+	script     = document.currentScript,
 	baseURL    = 'https://cdn.jsdelivr.net/gh/Third-River-Marketing-LLC/lead-connector-website-modules@latest/calculators/';
 	calculator = script.getAttribute('calculator'),
 	heading    = script.getAttribute('heading'),
