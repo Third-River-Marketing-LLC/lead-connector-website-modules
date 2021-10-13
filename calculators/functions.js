@@ -22,17 +22,17 @@ function loadCalculator(){
 	if( document.documentElement.dataset['loadCalculator'+calculator.replace(/-/,'')] === 'true' )
 		return;
 
-	var template  = baseURL + calculator +'/calc-template.html';
-	var functions = baseURL + calculator +'/calc-functions.js';
+	var template     = baseURL + calculator +'/template.html';
+	var calculations = baseURL + calculator +'/calculations.js';
 
 	var style  = document.createElement('link');
 	style.rel  = 'stylesheet';
 	style.type = 'text/css';
-	style.href = 'https://cdn.jsdelivr.net/gh/Third-River-Marketing-LLC/lead-connector-website-modules@latest/calculators/style.min.css';
+	style.href = baseURL + 'style.min.css';
 	head.appendChild(style);
 
 	var calcFunctionsScript = document.createElement('script');
-	calcFunctionsScript.src = functions;
+	calcFunctionsScript.src = calculations;
 
 	fetch(template).then(function(response){		
 		return response.text();
