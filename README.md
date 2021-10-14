@@ -19,7 +19,7 @@ The above code contains the same "universal styles", but also contains some more
 Module codes get dropped in a "Custom HTML/Javascript" block, not in the header or footer. Place them exactly where you want the final element to show up.
 
 ### Concrete Calculators
-	These have some additional available attributes you can add as well. Add `heading="Text_Goes_Here"` to replace the title or `notice="Text_Goest_here"` to change the italic notice. You can even add `debug="true"` to use Alex's versions, and `version="1"` (any number/string) to try and fetch a fresh cached version.
+These have some additional available attributes you can add as well. Add `heading="Text_Goes_Here"` to replace the title or `notice="Text_Goest_here"` to change the italic notice. You can even add `debug="true"` to use Alex's versions, and `version="1"` (any number/string) to try and fetch a fresh cached version.
 
 #### Concrete Volume Calculator
     <script src="https://cdn.jsdelivr.net/gh/Third-River-Marketing-LLC/lead-connector-website-modules@latest/concrete-calculators/init.js?v=9" calculator="concrete-volume"></script>
