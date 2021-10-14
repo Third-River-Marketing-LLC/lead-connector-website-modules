@@ -1,0 +1,75 @@
+// Named Colors
+$blue:    #0095ee;
+$purple:  #976ffb;
+$green:   #47cb6e;
+$pink:    #f16292;
+$yellow:  #febb44;
+$cyan:    #01cad8;
+$peach:   #ff7471;
+
+// Stars (Gold and Gray)
+$gold: #feb800;
+$gray: #e5e9f1;
+$star-gold: #feb800;
+$star-gray: #e5e9f1;
+
+// Alternate Colors
+$tag:           #7289da; // Purple
+$blue-on-white: #d9effc; // 15% opaque blue on white equivalent
+
+// Grays
+$blue-gray:      #f4f7fa;
+$dark-blue-gray: #425b76;
+$lightest-gray:  #f7f8fa;
+$light-gray:     #edeef2;
+$gray:           #c5c5cc;
+$medium-gray:    #b7b9be;
+$dark-gray:      #a4a8b3;
+$darker-gray:    #797c88;
+$darkest-gray:   #35383f;
+$blue-black:     #314b59;
+$admin-shadow:   #334bc7;
+$light-fade:     #8692a7;
+//$fade-gray:    #cdd9ed;
+$fade-gray:      #d8e1f1;
+$fade-black:     #53536d;
+$almost-white:   #fdfcff;
+
+// Dark Mode
+$dark-mode:       #24292e; // for way back (offwhite elements)
+$dark-mode-light: #2f363d; // for closer (white elements)
+
+// Social Media
+$facebook:  #3B5998;
+$instagram: #E4405F;
+$linkedin:  #0077B5;
+$twitter:   #1DA1F2;
+$youtube:   #FF0000;
+$vimeo:     #1AB7EA;
+$pinterest: #BD081C;
+$google-my-business: #DC4E41;
+
+// Maps
+$social-media: (
+	'facebook':  $facebook,
+	'instagram': $instagram,
+	'linkedin':  $linkedin,
+	'twitter':   $twitter,
+	'youtube':   $youtube,
+	'vimeo':     $vimeo,
+	'pinterest': $pinterest,
+	'google-my-business': $google-my-business
+);
+
+$colors: (
+	'blue': $blue,
+	'purple': $purple,
+	'green': $green,
+	'pink': $pink,
+	'yellow': $yellow,
+	'cyan': $cyan,
+	'peach': $peach,
+	'gray': $gray,
+	'medium-gray': $medium-gray,
+	'dark-gray': $dark-gray
+);

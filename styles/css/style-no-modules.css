@@ -1,0 +1,13 @@
+#nav-menu-popup .nav-menu-body {
+  background-color: #fff;
+}
+#nav-menu-popup .nav-menu-body li.nav-menu-item > .nav-menu-item-content > a {
+  padding: 12px;
+}
+
+.dropdown .dropdown-menu li {
+  text-align: left !important;
+  padding: 1em !important;
+}
+
+/*# sourceMappingURL=style-no-modules.css.map */
