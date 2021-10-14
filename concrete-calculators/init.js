@@ -2,7 +2,8 @@
 var head       = document.head || document.getElementsByTagName('head')[0],
 	url        = 'https://cdn.jsdelivr.net/',
 	debugURL   = 'https://xhynk.com/',
-	path       = 'gh/Third-River-Marketing-LLC/lead-connector-website-modules@latest/concrete-calculators/';
+	path       = 'gh/Third-River-Marketing-LLC/lead-connector-website-modules@latest/concrete-calculators/',
+	baseURL;
 
 function flexCalcMultiplier(el, e, div, mult){
 	div ??= 12;
@@ -74,7 +75,12 @@ if( document.readyState === 'interactive' || document.readyState === 'complete' 
 				notice     = document.currentScript.getAttribute('notice'),
 				debug      = document.currentScript.getAttribute('debug');
 
-			var baseURL = ((debug != null && debug != 'null') ? debugURL + path.replace('@latest','') : url + path );
+			if( debug != null && debug != 'null' ){
+				path = path.replace('@latest', '');
+				baseURL = debugURL + path;
+			} else {
+				baseURL = url + path;
+			}
 			
 			// Duplicate script issue has been handled
 			var template     = baseURL + calculator +'/template.html?v='+version;
