@@ -1,8 +1,8 @@
 #nav-menu-popup .nav-menu-body {
-  background-color: #fff;
+  background-color: #fff !important;
 }
 #nav-menu-popup .nav-menu-body li.nav-menu-item > .nav-menu-item-content > a {
-  padding: 12px;
+  padding: 12px !important;
 }
 
 .dropdown .dropdown-menu li {
