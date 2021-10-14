@@ -37,92 +37,83 @@ function resetForm(el,e){
 	if( !confirm('Reset the ' + el.closest('form').querySelector('strong').innerText + '?' ) )
 		return;
 	
-	var fields = el.closest('form').querySelectorAll('input:not(type="hidden")');
+	var fields = el.closest('form').querySelectorAll('input:not([type="hidden"])');
 
 	fields.forEach(function(field){
 		field.value = '';
 	});
 }
 
-if( document.readyState === 'interactive' || document.readyState === 'complete' ){
-	console.log( 'Document: ' + document.readyState );
+(function(){
+	if( !document.currentScript.src.includes('initialized=true') ){
+		var newScript = document.createElement('script');
+		newScript.src = document.currentScript.src;
+		newScript.setAttribute('debug', document.currentScript.getAttribute('debug') );
+		newScript.setAttribute('notice', document.currentScript.getAttribute('notice') );
+		newScript.setAttribute('version', document.currentScript.getAttribute('version') );
+		newScript.setAttribute('heading', document.currentScript.getAttribute('heading') );
+		newScript.setAttribute('calculator', document.currentScript.getAttribute('calculator') );
 
-	(function(){
-		console.log( 'IIFE Running' );
+		newScript.src += (newScript.src.includes('?')) ? '&' : '?';
+		newScript.src += 'initialized=true&uniqid=' + uniqid('',true);
 
-		if( !document.currentScript.src.includes('initialized=true') ){
-			console.log( 'Script not re-initialized, initializing…' );
+		document.currentScript.parentNode.insertBefore(newScript, document.currentScript);
+		document.currentScript.outerHTML = '';
+	} else {
+		var selfScript = document.currentScript,
+			calculator = document.currentScript.getAttribute('calculator'),
+			heading    = document.currentScript.getAttribute('heading'),
+			version    = document.currentScript.getAttribute('version'),
+			notice     = document.currentScript.getAttribute('notice'),
+			debug      = document.currentScript.getAttribute('debug');
 
-			var newScript = document.createElement('script');
-			newScript.src = document.currentScript.src;
-			newScript.setAttribute('debug', document.currentScript.getAttribute('debug') );
-			newScript.setAttribute('notice', document.currentScript.getAttribute('notice') );
-			newScript.setAttribute('version', document.currentScript.getAttribute('version') );
-			newScript.setAttribute('heading', document.currentScript.getAttribute('heading') );
-			newScript.setAttribute('calculator', document.currentScript.getAttribute('calculator') );
-
-			newScript.src += (newScript.src.includes('?')) ? '&' : '?';
-			newScript.src += 'initialized=true&uniqid=' + uniqid('',true);
-
-			document.currentScript.parentNode.insertBefore(newScript, document.currentScript);
-			document.currentScript.outerHTML = '';
+		if( debug != null && debug != 'null' ){
+			path = path.replace('@latest', '');
+			baseURL = debugURL + path;
 		} else {
-			console.log( 'Script re-initialized' );
-			var selfScript = document.currentScript,
-				calculator = document.currentScript.getAttribute('calculator'),
-				heading    = document.currentScript.getAttribute('heading'),
-				version    = document.currentScript.getAttribute('version'),
-				notice     = document.currentScript.getAttribute('notice'),
-				debug      = document.currentScript.getAttribute('debug');
-
-			if( debug != null && debug != 'null' ){
-				path = path.replace('@latest', '');
-				baseURL = debugURL + path;
-			} else {
-				baseURL = url + path;
-			}
-			
-			// Duplicate script issue has been handled
-			var template     = baseURL + calculator +'/template.html?v='+version;
-			var calculations = baseURL + calculator +'/calculations.js?v='+version;
-
-			if( head.querySelector('link[href="'+ baseURL + 'style.min.css?v='+version+'"]') == null ){
-				var style  = document.createElement('link');
-				style.rel  = 'stylesheet';
-				style.type = 'text/css';
-				style.href = baseURL + 'style.min.css';
-				head.appendChild(style);
-			}
-
-			var calcFunctionsScript = document.createElement('script');
-			calcFunctionsScript.src = calculations;
-
-			fetch(template).then(function(response){
-				return response.text();
-			}).then(function(html){
-				var calculatorElement = document.createElement('div');
-				calculatorElement.id = calculator;
-				calculatorElement.dataUniqueId = uniqid(calculator,true);
-				calculatorElement.classList.add(calculator, 'flex-form-calculator');
-				calculatorElement.innerHTML = html;
-
-				if( heading != null && heading != 'null' ){
-					var headingElement = calculatorElement.querySelector('header h3 strong');
-					if( headingElement != null )
-						headingElement.innerText = heading;
-				}
-
-				if( notice != null && notice != 'null' ){
-					var noticeElement = calculatorElement.querySelector('header h3 em');
-					if( noticeElement != null )
-						noticeElement.innerText = notice;
-				}
-
-				selfScript.outerHTML = calculatorElement.outerHTML;
-			}).then(function(){
-				document.body.appendChild(calcFunctionsScript);
-				console.log( calculator +' Loaded' );
-			});
+			baseURL = url + path;
 		}
-	})();
-}
+		
+		// Duplicate script issue has been handled
+		var template     = baseURL + calculator +'/template.html?v='+version;
+		var calculations = baseURL + calculator +'/calculations.js?v='+version;
+
+		if( head.querySelector('link[href="'+ baseURL + 'style.min.css?v='+version+'"]') == null ){
+			var style  = document.createElement('link');
+			style.rel  = 'stylesheet';
+			style.type = 'text/css';
+			style.href = baseURL + 'style.min.css';
+			head.appendChild(style);
+		}
+
+		var calcFunctionsScript = document.createElement('script');
+		calcFunctionsScript.src = calculations;
+
+		fetch(template).then(function(response){
+			return response.text();
+		}).then(function(html){
+			var calculatorElement = document.createElement('div');
+			calculatorElement.id = calculator;
+			calculatorElement.dataUniqueId = uniqid(calculator,true);
+			calculatorElement.classList.add(calculator, 'flex-form-calculator');
+			calculatorElement.innerHTML = html;
+
+			if( heading != null && heading != 'null' ){
+				var headingElement = calculatorElement.querySelector('header h3 strong');
+				if( headingElement != null )
+					headingElement.innerText = heading;
+			}
+
+			if( notice != null && notice != 'null' ){
+				var noticeElement = calculatorElement.querySelector('header h3 em');
+				if( noticeElement != null )
+					noticeElement.innerText = notice;
+			}
+
+			selfScript.outerHTML = calculatorElement.outerHTML;
+		}).then(function(){
+			document.body.appendChild(calcFunctionsScript);
+			console.log( calculator +' Loaded' );
+		});
+	}
+})();
