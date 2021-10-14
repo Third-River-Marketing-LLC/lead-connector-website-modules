@@ -2,7 +2,7 @@
 var head       = document.head || document.getElementsByTagName('head')[0],
 	url        = 'https://cdn.jsdelivr.net/',
 	debugURL   = 'https://xhynk.com/',
-	path       = 'gh/Third-River-Marketing-LLC/lead-connector-website-modules@latest/calculators/';
+	path       = 'gh/Third-River-Marketing-LLC/lead-connector-website-modules@latest/concrete-calculators/';
 
 function flexCalcMultiplier(el, e, div, mult){
 	div ??= 12;
