@@ -36,16 +36,22 @@ function resetForm(el,e){
 	if( !confirm('Reset the ' + el.closest('form').querySelector('strong').innerText + '?' ) )
 		return;
 	
-	var fields = el.closest('form').querySelectorAll('input');
+	var fields = el.closest('form').querySelectorAll('input:not(type="hidden")');
 
 	fields.forEach(function(field){
 		field.value = '';
 	});
 }
 
-if( document.readyState === 'interactive' || document.readyState === 'complete' ) {
+if( document.readyState === 'interactive' || document.readyState === 'complete' ){
+	console.log( 'Document: ' + document.readyState );
+
 	(function(){
+		console.log( 'IIFE Running' );
+
 		if( !document.currentScript.src.includes('initialized=true') ){
+			console.log( 'Script not re-initialized, initializing…' );
+
 			var newScript = document.createElement('script');
 			newScript.src = document.currentScript.src;
 			newScript.setAttribute('debug', document.currentScript.getAttribute('debug') );
@@ -60,6 +66,7 @@ if( document.readyState === 'interactive' || document.readyState === 'complete' 
 			document.currentScript.parentNode.insertBefore(newScript, document.currentScript);
 			document.currentScript.outerHTML = '';
 		} else {
+			console.log( 'Script re-initialized' );
 			var selfScript = document.currentScript,
 				calculator = document.currentScript.getAttribute('calculator'),
 				heading    = document.currentScript.getAttribute('heading'),
