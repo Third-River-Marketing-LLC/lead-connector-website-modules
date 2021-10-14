@@ -22,10 +22,10 @@ Module codes get dropped in a "Custom HTML/Javascript" block, not in the header 
 These have some additional available attributes you can add as well. Add `heading="Text_Goes_Here"` to replace the title or `notice="Text_Goest_here"` to change the italic notice. You can even add `debug="true"` to use Alex's versions, and `version="1"` (any number/string) to try and fetch a fresh cached version.
 
 #### Concrete Volume Calculator
-    <script src="https://cdn.jsdelivr.net/gh/Third-River-Marketing-LLC/lead-connector-website-modules@latest/concrete-calculators/init.js?v=9" calculator="concrete-volume"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Third-River-Marketing-LLC/lead-connector-website-modules@latest/concrete-calculators/init.js" calculator="concrete-volume"></script>
 
 #### Block Wall Calculator
-	<script src="https://cdn.jsdelivr.net/gh/Third-River-Marketing-LLC/lead-connector-website-modules@latest/concrete-calculators/init.js?v=9" calculator="block-wall"></script>
+	<script src="https://cdn.jsdelivr.net/gh/Third-River-Marketing-LLC/lead-connector-website-modules@latest/concrete-calculators/init.js" calculator="block-wall"></script>
 
 #### Column Calculator
-	<script src="https://cdn.jsdelivr.net/gh/Third-River-Marketing-LLC/lead-connector-website-modules@latest/concrete-calculators/init.js?v=9" calculator="column"></script>
+	<script src="https://cdn.jsdelivr.net/gh/Third-River-Marketing-LLC/lead-connector-website-modules@latest/concrete-calculators/init.js" calculator="column"></script>
