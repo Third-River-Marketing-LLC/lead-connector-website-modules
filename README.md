@@ -16,7 +16,7 @@ The above code contains the same "universal styles", but also contains some more
 # JavaScript
 
 ## Modules
-Module codes get dropped in a "Custom HTML/Javascript" block, not in the header or footer. Place them exactly where you want the final element to show up.
+Module codes get dropped in a "Custom HTML/Javascript" block, not in the header or footer. Place them exactly where you want the final element to show up. For example: `<script heading="Some New Heading" src="[…]"></script>`
 
 ### Concrete Calculators
 These have some additional available attributes you can add as well. Add `heading="Text_Goes_Here"` to replace the title or `notice="Text_Goest_here"` to change the italic notice. You can even add `debug="true"` to use Alex's versions, and `version="1"` (any number/string) to try and fetch a fresh cached version.
