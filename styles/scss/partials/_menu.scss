@@ -6,6 +6,10 @@
 			& > .nav-menu-item-content {
 				& > a {
 					padding: 12px !important;
+
+					&:hover {
+						color: var(--primary) !important;
+					}
 				}
 			}
 
@@ -17,6 +21,10 @@
 
 						a {
 							padding: 12px !important;
+
+							&:hover {
+								color: var(--primary) !important;
+							}
 						}
 					}
 				}

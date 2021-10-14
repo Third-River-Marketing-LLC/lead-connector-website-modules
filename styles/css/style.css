@@ -566,12 +566,18 @@
 #nav-menu-popup .nav-menu-body li.nav-menu-item > .nav-menu-item-content > a {
   padding: 12px !important;
 }
+#nav-menu-popup .nav-menu-body li.nav-menu-item > .nav-menu-item-content > a:hover {
+  color: var(--primary) !important;
+}
 #nav-menu-popup .nav-menu-body li.nav-menu-item.dropdown ul li {
   text-align: left !important;
   padding: 0 !important;
 }
 #nav-menu-popup .nav-menu-body li.nav-menu-item.dropdown ul li a {
   padding: 12px !important;
+}
+#nav-menu-popup .nav-menu-body li.nav-menu-item.dropdown ul li a:hover {
+  color: var(--primary) !important;
 }
 
 /*# sourceMappingURL=style.css.map */
