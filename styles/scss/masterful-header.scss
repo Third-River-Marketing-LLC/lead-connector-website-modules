@@ -7,7 +7,11 @@
 		& > div { // Internal wrap?
 			& > div[id*="section-"].fullSection:nth-child(1){ // "Make it Bright"
 				& > .inner {
-					flex-direction: row;
+					&,
+					& div[id*="row-"] > .inner {
+						flex-direction: row;
+						align-items: center;
+					}
 
 					.c-column:first-child {
 						flex-shrink: 1;
@@ -29,8 +33,11 @@
 
 			& > div[id*="section-"].fullSection:nth-child(2) { // "Main Menu/Header"
 				& > .inner {
-					flex-direction: row;
-					align-items: center;
+					&,
+					& div[id*="row-"] > .inner {
+						flex-direction: row;
+						align-items: center;
+					}
 
 					.c-column:last-child { // Button Container
 						flex-shrink: 0 !important;
