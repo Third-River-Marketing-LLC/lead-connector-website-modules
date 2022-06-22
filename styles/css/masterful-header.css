@@ -1,0 +1,46 @@
+@media all and (max-width: 1024px) {
+  .nav-menu-mobile {
+    padding: 0 16px;
+  }
+
+  #preview-container > div > div[id*=section-].fullSection:nth-child(1) > .inner {
+    flex-direction: row;
+  }
+  #preview-container > div > div[id*=section-].fullSection:nth-child(1) > .inner .c-column:first-child {
+    flex-shrink: 1;
+    width: auto !important;
+  }
+  #preview-container > div > div[id*=section-].fullSection:nth-child(1) > .inner div[id*=paragraph-].c-paragraph p {
+    font-size: 18px;
+    line-height: 1.2;
+  }
+  #preview-container > div > div[id*=section-].fullSection:nth-child(1) > .inner div[id*=paragraph-].c-paragraph p a {
+    display: block;
+  }
+  #preview-container > div > div[id*=section-].fullSection:nth-child(2) > .inner {
+    flex-direction: row;
+    align-items: center;
+  }
+  #preview-container > div > div[id*=section-].fullSection:nth-child(2) > .inner .c-column:last-child {
+    flex-shrink: 0 !important;
+    width: 160px !important;
+  }
+  #preview-container > div > div[id*=section-].fullSection:nth-child(2) > .inner div[id*=button-].c-button .main-heading-button {
+    font-size: 16px !important;
+  }
+}
+@media all and (max-width: 600px) {
+  .branding {
+    width: 148px;
+  }
+
+  .branding .logo img {
+    height: auto;
+  }
+
+  #preview-container > div > div[id*=section-].fullSection:nth-child(1) .c-column > .inner {
+    padding: 0;
+  }
+}
+
+/*# sourceMappingURL=masterful-header.css.map */
