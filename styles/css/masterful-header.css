@@ -24,7 +24,7 @@
   }
   #preview-container > div > div[id*=section-].fullSection:nth-child(2) > .inner .c-column:last-child {
     flex-shrink: 0 !important;
-    width: 160px !important;
+    width: 180px !important;
   }
   #preview-container > div > div[id*=section-].fullSection:nth-child(2) > .inner div[id*=button-].c-button .main-heading-button {
     font-size: 16px !important;
