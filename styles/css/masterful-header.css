@@ -26,6 +26,10 @@
     flex-shrink: 0 !important;
     width: 180px !important;
   }
+  #preview-container > div > div[id*=section-].fullSection:nth-child(2) > .inner .c-column:last-child > *, #preview-container > div > div[id*=section-].fullSection:nth-child(2) > .inner .c-column:last-child > * * {
+    width: 180px !important;
+    padding: 0;
+  }
   #preview-container > div > div[id*=section-].fullSection:nth-child(2) > .inner div[id*=button-].c-button .main-heading-button {
     font-size: 16px !important;
   }
